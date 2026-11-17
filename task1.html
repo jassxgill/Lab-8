@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Toronto Zoo</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial;
+
+        }
+
+        .box {
+
+            width: 430px;
+
+            padding: 15px;
+
+            border: 4px solid burlywood;
+
+            background-color: #fffaf0;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+
+        }
+
+        .left {
+
+            width: 210px;
+
+            text-align: center;
+
+        }
+
+        h2 {
+
+            color: brown;
+
+        }
+
+        #zooImage {
+
+            width: 190px;
+
+            height: 150px;
+
+            object-fit: cover;
+
+        }
+
+        #movingText {
+
+            color: red;
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            position: relative;
+
+            white-space: nowrap;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div style="width: 460px; overflow: hidden;">
+
+        <div id="movingText">Zoo</div>
+
+    </div>
+
+    <div class="box">
+
+        <div class="left">
+
+            <h2>Toronto Zoo</h2>
+
+            <p>
+
+                Tiger
+
+                <input type="radio" name="animal"
+
+                       value="tiger.jpg" checked
+
+                       onchange="changeImage(this)">
+
+            </p>
+
+            <p>
+
+                Photo of yourself
+
+                <input type="radio" name="animal"
+
+                       value="me.jpeg"
+
+                       onchange="changeImage(this)">
+
+            </p>
+
+        </div>
+
+        <img id="zooImage" src="tiger.jpg"
+
+             alt="Selected picture">
+
+    </div>
+
+    <script>
+
+        let position = 0;
+
+        function scrollZoo() {
+
+            position = position + 2;
+
+            if (position > 430) {
+
+                position = -50;
+
+            }
+
+            document.getElementById("movingText")
+
+                .style.left = position + "px";
+
+        }
+
+        setInterval(scrollZoo, 30);
+
+        function changeImage(radio) {
+
+            document.getElementById("zooImage").src =
+
+                radio.value;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
